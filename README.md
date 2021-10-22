@@ -554,7 +554,7 @@ pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
-contract NDToken is ERC20 {
+contract Token is ERC20 {
     constructor(string memory name, string memory symbol) ERC20(name, symbol) {
         _mint(msg.sender, 100000 * (10 ** 18));
     }
@@ -568,8 +568,8 @@ By default, ERC20 sets the number of decimals to 18, so in our `_mint` function 
 To deploy, we need to pass in the constructor values (`name` and `symbol`), so we might do something like this in our deploy script:
 
 ```javascript
-const NDToken = await hre.ethers.getContractFactory("NDToken");
-const ndToken = await NDToken.deploy("Lazy Cats Token", "LCT");
+const Token = await hre.ethers.getContractFactory("Token");
+const token = await Token.deploy("Lazy Cats Token", "LCT");
 ```
 
 By extending the original ERC20 token, your token will inherit all of the following functions and functionality:
